@@ -6,6 +6,14 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="captcha"></div>
+  <div id="captcha"></div>
+
+  <script src="./src/index.js"></script>
+  <script>
+    const captcha = new Captcha({
+      el: '#captcha'
+    })
+    captcha.draw()
+  </script>
 </body>
 </html>
