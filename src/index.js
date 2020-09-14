@@ -57,19 +57,28 @@
       else this.$el = document.querySelector(this.el)
 
       this.$canvas = document.createElement('canvas')
+      this.$canvas.width = this.width
+      this.$canvas.height = this.height
       this.ctx = this.$canvas.getContext('2d')
       this.draw()
       this.$el.appendChild(this.$canvas)
     }
 
-    draw() {
+    draw(content) {
+      if (content) this.content = content
       this.ctx.fillStyle = getRandomColor(200, 220)
       this.ctx.fillRect(0, 0, this.width, this.height)
+
+      this.drawContent()
     }
 
-    drawCanvas() {}
-
-    drawContent() {}
+    drawContent() {
+      // 随机字体颜色
+      this.ctx.fillStyle = getRandomColor(50, 160)
+      // 随机字体大小
+      this.ctx.font = `48px serif`
+      this.ctx.fillText('d', 10, 10)
+    }
 
     drawLine() {}
 
